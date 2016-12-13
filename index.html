@@ -1,0 +1,88 @@
+<html>
+
+  <body>
+
+    Ahoj
+
+  </body>
+  <script>
+
+    var execute_problem = function(problem) {
+      var t0 = performance.now();
+      problem();
+      var t1 = performance.now();
+      console.log("Computing this took " + (t1 - t0) + " milliseconds.")
+
+    }
+
+    var problem1 = function() {
+      console.log("problem1");
+      var sum = 0;
+      var a = 0;
+
+      while (a < 1000)
+      {
+        if((a%3) == 0) {
+          //console.log("3 adding: ",a);
+          sum += a;
+        }
+        else if(a%5 == 0) {
+          //console.log("5 adding: ",a);
+          sum += a;
+        }
+
+        a++;
+      }
+
+      console.log("result: ",sum);
+    }
+
+    var problem1v2 = function() {
+      console.log("problem1v2");
+      var sum = 0;
+
+      var temp = 3;
+      while(temp < 1000) {
+        sum += temp;
+        temp += 3;
+      }
+
+      var temp = 5;
+      while(temp < 1000) {
+        sum += temp;
+        temp += 5;
+      }
+
+      var temp = 15;
+      while(temp < 1000) {
+        sum -= temp;
+        temp += 15;
+      }
+    }
+
+    var problem2 = function()
+    {
+      console.log("problem 2", 4e6);
+      a = 1;
+      b = 2;
+      var temp = 0;
+      var sum = 0;
+      while(b < 4e6)
+      {
+        temp = a + b;
+        if(b % 2 == 0)
+        {
+          sum += b;
+        }
+        console.log(a, " ", b, "sum:",sum);
+        a = b;
+        b = temp;
+      }
+      console.log("result: ",sum);
+    }
+
+
+    execute_problem(problem2);
+
+  </script>
+</html>
